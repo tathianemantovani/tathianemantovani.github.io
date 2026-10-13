@@ -1,6 +1,6 @@
 # Tathiane Mantovani
 
-Site profissional de página única em português, feito com Astro, TypeScript e CSS. O endereço esperado após a publicação é <https://tathianemantovani.github.io/>. A publicação e a configuração do GitHub Pages ainda dependem dos passos abaixo.
+Site profissional de página única em português, feito com Astro, TypeScript e CSS, publicado em <https://tathianemantovani.github.io/>. As revisões são preparadas no branch `revisao-site`; novos pushes em `main` iniciam a atualização pelo GitHub Pages.
 
 ## Desenvolvimento
 
@@ -24,38 +24,46 @@ npm run preview -- --host 127.0.0.1 --port 4322
 
 ## Edição do conteúdo
 
-Edite `src/data/site.ts` para atualizar textos, links, números, formação, serviços, segmentos, cases anônimos e depoimentos sem alterar os componentes. Preserve os status de formação e de revisão editorial. Novos depoimentos ainda não confirmados devem ficar com `status: 'pendenteRevisao'` para serem omitidos da página.
+Edite `src/data/site.ts` para atualizar textos, links, números, formação, serviços, segmentos, cases anônimos e depoimentos sem alterar os componentes. A frase do início está em `hero.headingLines`. Ajustes de cores, tipografia, espaçamento e responsividade ficam em `src/styles/global.css`.
 
-A titular conferiu e aprovou os oito depoimentos fornecidos. Todos estão com `status: 'aprovado'` e visíveis; a página reúne as onze seções previstas. Alterar esse status inclui ou oculta o registro na página gerada e na prévia local, sem iniciar uma publicação por si só.
+A formação pública exibe somente os nomes de duas graduações e dez especializações. Instituições, períodos e status conhecidos permanecem nos dados como referência editorial, sem aparecer na página. Preserve essas informações e não atribua conclusão, instituição ou datas aos cursos sem confirmação. O bloco de trajetória profissional foi retirado do Sobre; os cinco diferenciais permanecem.
+
+A revisão atual reúne doze competências de expertise e doze serviços. Os oito depoimentos foram aprovados pela titular e receberam os textos e vínculos fornecidos para esta revisão. Estão com `status: 'aprovado'` e visíveis; a página reúne as onze seções previstas.
+
+Novos depoimentos ainda não confirmados devem ficar com `status: 'pendenteRevisao'` para serem omitidos da página. Alterar esse status inclui ou oculta o registro na página gerada e na prévia local, sem iniciar uma publicação por si só.
 
 As imagens originais fornecidas pela titular estão incluídas em `public/images/`, conforme o [guia de imagens](public/images/README.md): fotografia de 867 × 1024 px e ilustração de 981 × 756 px. Os caminhos, textos alternativos e dimensões ficam em `src/data/site.ts`.
 
+A fotografia aparece menor e circular no hero, sem legenda com o nome. A ilustração original de livro e pena integra a marca no cabeçalho e no rodapé pelo componente `src/components/Brand.astro`; ela foi retirada do Sobre.
+
 Ao substituir alguma imagem, atualize `width` e `height` nos dados, revise o enquadramento e execute um novo build. Preserve a composição da fotografia e a transparência da ilustração. As imagens são incluídas somente quando os arquivos existem.
 
-## Validação executada
+## Validação
 
-- `npm ci`, `npm run check` e `npm run build` concluídos; o check retornou zero erros e avisos.
-- Desenvolvimento e saída estática responderam HTTP 200 com o conteúdo e os links de contato esperados.
-- Chromium em 320, 375, 768, 1024, 1440 e 1920 px: sem rolagem horizontal, erros de JavaScript, âncoras ausentes ou imagens quebradas.
-- Menu por teclado, retorno do foco com Escape e movimento reduzido verificados; auditoria axe sem violações nos critérios WCAG AA selecionados. O contraste do hero foi conferido manualmente por causa da grade decorativa.
-- Os oito depoimentos aprovados pela titular estão configurados para aparecer na seção de depoimentos.
-- A presença das duas imagens originais atende à verificação obrigatória de assets do workflow. A publicação pelo workflow ainda não foi confirmada no GitHub.
+Antes de publicar alterações, execute `npm run check` e `npm run build`, depois confira a saída com `npm run preview`.
+
+- Verifique as larguras de 320, 375, 768, 1024, 1440 e 1920 px, sem rolagem horizontal, imagens quebradas ou âncoras ausentes.
+- Confira o menu por teclado, o retorno do foco com Escape, o movimento reduzido e o contraste. A grade decorativa do hero pode exigir conferência manual de contraste na auditoria axe.
+- Confira a formação apenas com nomes, os doze itens de expertise, os doze serviços e os oito depoimentos aprovados.
+- O workflow executa instalação pelo lockfile, verificação de tipos e build; também exige que as duas imagens originais estejam presentes e não vazias.
 
 ## Revisões editoriais opcionais
 
 - Se necessário, ajustar o indicador de livros entre `9+` e `9`.
-- Refinar a apresentação de `12+` especializações; o rótulo atual distingue cursos concluídos e em andamento.
-- Atualizar a seleção de cursos e instituições conforme desejado. Jornalismo e as especializações indicadas como em andamento devem continuar com esse status até sua conclusão.
+- Se necessário, revisar o indicador de `12+` especializações; o rótulo público atual é `especializações acadêmicas`.
+- Atualizar a seleção de nomes da formação e os metadados conhecidos nos dados, preservando o status real dos cursos.
 
-Essas revisões não bloqueiam a publicação. Os oito depoimentos já foram aprovados; seus trechos permanecem fiéis ao conteúdo fornecido, sem completar sobrenomes ou conteúdo oculto e sem screenshots.
+Os oito depoimentos atuais já foram aprovados; suas citações e vínculos seguem o conteúdo fornecido pela titular, sem screenshots.
 
-## Publicar no GitHub Pages
+## Atualizar o GitHub Pages
 
-O branch `main` está preparado para o fluxo de publicação. A publicação ainda não foi confirmada; o GitHub Pages precisa estar configurado para usar GitHub Actions.
+O site já está publicado. Um push em `revisao-site` disponibiliza o código para revisão e não aciona a publicação automática. Depois de revisar as alterações, incorporá-las a `main` inicia `.github/workflows/deploy.yml` e atualiza o site quando os jobs terminam com sucesso.
 
-1. No repositório `tathianemantovani/tathianemantovani.github.io`, abra **Settings → General → Default branch** e selecione `main` como branch padrão.
-2. Abra **Settings → Pages → Build and deployment → Source** e selecione **GitHub Actions**. Essa configuração é manual; o workflow não habilita Pages automaticamente.
-3. Abra **Actions → Publicar no GitHub Pages → Run workflow**, selecione o branch `main` e execute. Esse comando pode repetir a publicação caso um primeiro push tenha ocorrido antes da configuração de Pages.
-4. Aguarde os jobs **Verificar e construir** e **Publicar** ficarem verdes. Abra a URL mostrada pelo deployment: <https://tathianemantovani.github.io/>. Só então considere a publicação confirmada.
+Para conferir a configuração ou repetir uma atualização:
+
+1. Em **Settings → General → Default branch**, mantenha `main` como branch padrão.
+2. Em **Settings → Pages → Build and deployment → Source**, mantenha **GitHub Actions**. Essa configuração é manual; o workflow não habilita Pages automaticamente.
+3. Em **Actions → Publicar no GitHub Pages → Run workflow**, selecione `main` e execute para repetir a publicação desse branch.
+4. Aguarde os jobs **Verificar e construir** e **Publicar** ficarem verdes e confira <https://tathianemantovani.github.io/>.
 
 Novos pushes em `main` iniciam `.github/workflows/deploy.yml` automaticamente. O workflow usa actions oficiais fixadas por SHA, Node.js 24, `npm ci`, verificação de tipos e build estático. O job de build só lê o código; o job de deploy recebe `pages: write` e `id-token: write`. As duas imagens originais já estão incluídas; o workflow verifica que continuam presentes e não vazias. O Astro usa `site: 'https://tathianemantovani.github.io'`, sem `base` de subdiretório.

@@ -28,7 +28,7 @@ export interface Education {
   name: string;
   institution?: string;
   period?: string;
-  status: EducationStatus;
+  status?: EducationStatus;
 }
 
 export interface CaseStudy {
@@ -100,12 +100,8 @@ export interface SiteContent {
   about: Section & {
     differentialsTitle: string;
     differentials: DescriptionCard[];
-    trajectoryTitle: string;
-    trajectory: { organization: string; description: string }[];
     educationTitle: string;
     education: Education[];
-    educationStatusLabels: Record<EducationStatus, string>;
-    educationNote: string;
   };
   expertise: Section & { items: DescriptionCard[] };
   segments: Section & {
@@ -170,7 +166,7 @@ export const site: SiteContent = {
     name: 'Tathiane Mantovani',
     monogram: 'TM',
     title: 'Especialista em SEO, GEO e Presença Digital',
-    positioning: 'Entre contexto, dados e presença.',
+    positioning: 'Entre contexto, dados e presença',
   },
   meta: {
     title: 'Tathiane Mantovani | SEO, GEO e Presença Digital',
@@ -190,7 +186,6 @@ export const site: SiteContent = {
     { label: 'Expertise', href: '#expertise' },
     { label: 'Projetos', href: '#projetos' },
     { label: 'Serviços', href: '#servicos' },
-    { label: 'Como funciona', href: '#como-funciona' },
     { label: 'Contato', href: '#contato' },
   ],
   ui: {
@@ -220,8 +215,8 @@ export const site: SiteContent = {
   hero: {
     id: 'inicio',
     eyebrow: 'SEO · GEO · Presença digital',
-    heading: 'Entre contexto, dados e presença.',
-    headingLines: ['Entre contexto,', 'dados e presença.'],
+    heading: 'Entre contexto, dados e presença',
+    headingLines: ['Entre contexto,', 'dados e presença'],
     description:
       'Transformo dados, comportamento de busca e oportunidades digitais em estratégias que ajudam marcas e profissionais a serem encontrados, reconhecidos e considerados pelos seus potenciais clientes.',
     primaryCta: { label: 'Vamos conversar', href: whatsappHref() },
@@ -235,16 +230,16 @@ export const site: SiteContent = {
     id: 'numeros',
     label: 'Uma trajetória em números',
     items: [
-      { value: '7+', label: 'anos de experiência em SEO, GEO e análise de dados' },
+      { value: '7+', label: 'anos de experiência na área de comunicação' },
       { value: '40+', label: 'projetos desenvolvidos' },
       { value: '9+', label: 'livros técnicos publicados' },
-      { value: '12+', label: 'especializações acadêmicas, concluídas e em andamento' },
+      { value: '12+', label: 'especializações acadêmicas' },
     ],
   },
   about: {
     id: 'sobre',
     eyebrow: 'Sobre mim',
-    title: 'Estratégia com repertório. Presença com propósito.',
+    title: 'Estratégia com repertório. Presença com propósito',
     intro:
       'Sou especialista em SEO, GEO e presença digital, com mais de sete anos de experiência em estratégias de conteúdo, análise de dados e crescimento orgânico. Minha trajetória reúne projetos de diferentes segmentos, mercados e níveis de complexidade, incluindo atuação internacional. Combino visão estratégica, experiência editorial e conhecimento sobre mecanismos de busca e inteligência artificial para desenvolver soluções alinhadas aos objetivos de cada negócio.',
     differentialsTitle: 'O que conecta meu trabalho',
@@ -270,22 +265,8 @@ export const site: SiteContent = {
         description: 'Atuação própria do diagnóstico à otimização, de acordo com a modalidade e o escopo contratado.',
       },
     ],
-    trajectoryTitle: 'Uma trajetória que reúne busca, conteúdo e educação',
-    trajectory: [
-      {
-        organization: 'NP Digital Brasil',
-        description: 'Atuação atual em SEO, com foco em estratégias de busca e presença digital.',
-      },
-      {
-        organization: 'IndieTech OÜ',
-        description: 'Experiência em gestão de conteúdo e redação SEO.',
-      },
-      {
-        organization: 'EAD UniCesumar',
-        description: 'Experiência anterior com docência e produção de materiais de ensino.',
-      },
-    ],
     educationTitle: 'Formação e aprendizado contínuo',
+    // A página mostra somente os nomes. Metadados conhecidos ficam como referência editorial.
     education: [
       {
         name: 'Graduação em Administração',
@@ -294,24 +275,27 @@ export const site: SiteContent = {
         status: 'concluido',
       },
       {
-        name: 'Bacharelado em Jornalismo',
+        name: 'Graduação em Jornalismo',
         institution: 'UNINTER',
         period: '2023–2027',
         status: 'emAndamento',
       },
-      { name: 'Jornalismo Digital', status: 'emAndamento' },
-      { name: 'Jornalismo de Dados', status: 'emAndamento' },
-      { name: 'Produção Editorial', status: 'emAndamento' },
-      { name: 'Cinema e Linguagem Audiovisual', status: 'emAndamento' },
+      { name: 'Especialização em Jornalismo Digital', status: 'emAndamento' },
+      { name: 'Especialização em Jornalismo de Dados', status: 'emAndamento' },
+      { name: 'Especialização em Produção Editorial', status: 'emAndamento' },
+      { name: 'Especialização em Cinema e Linguagem Audiovisual', status: 'emAndamento' },
+      { name: 'Especialização em Gestão de Mídias Sociais' },
+      { name: 'Especialização em Gestão de Mídias Digitais' },
+      { name: 'Especialização em Produção de Audiovisual para Web' },
+      { name: 'Especialização em Relações Públicas e Assessoria de Imprensa' },
+      { name: 'Especialização em Design Instrucional' },
+      { name: 'Especialização em Revisão de Texto' },
     ],
-    educationStatusLabels: { concluido: 'Concluído', emAndamento: 'Em andamento' },
-    educationNote:
-      'Minha formação também reúne especializações nas áreas de gestão, comunicação, mídias digitais, produção editorial, audiovisual e jornalismo de dados. Os cursos destacados distinguem formações concluídas de estudos em andamento.',
   },
   expertise: {
     id: 'expertise',
     eyebrow: 'Expertise',
-    title: 'Conectar perguntas, dados e oportunidades.',
+    title: 'Conectar perguntas, dados e oportunidades',
     intro:
       'Competências que se complementam para entender o contexto, definir prioridades e construir uma presença digital coerente.',
     items: [
@@ -339,12 +323,36 @@ export const site: SiteContent = {
         title: 'Comunicação e produção editorial',
         description: 'Organização de ideias e desenvolvimento de conteúdos claros, consistentes e adequados ao seu contexto.',
       },
+      {
+        title: 'SEO para redes sociais',
+        description: 'Organização de informações e conteúdo para apoiar a descoberta de perfis, especialidades e serviços nas buscas das plataformas sociais.',
+      },
+      {
+        title: 'SEO para Reddit',
+        description: 'Análise de comunidades, linguagem e intenção de busca para orientar uma presença relevante nas discussões do Reddit.',
+      },
+      {
+        title: 'SEO para e-commerce',
+        description: 'Análise da estrutura de categorias, produtos e conteúdo para identificar oportunidades de descoberta orgânica de lojas virtuais.',
+      },
+      {
+        title: 'SEO local',
+        description: 'Leitura das buscas por serviço e localização para organizar a presença de negócios em seus mercados locais.',
+      },
+      {
+        title: 'SEO internacional',
+        description: 'Estratégia de busca e conteúdo considerando idiomas, públicos e características de diferentes mercados.',
+      },
+      {
+        title: 'Reputação',
+        description: 'Análise da presença pública e da consistência das informações que ajudam as pessoas a conhecer e avaliar um negócio ou profissional.',
+      },
     ],
   },
   segments: {
     id: 'segmentos',
     eyebrow: 'Experiência por segmentos',
-    title: 'Repertório para compreender diferentes negócios.',
+    title: 'Repertório para compreender diferentes negócios',
     intro:
       'Minha trajetória inclui projetos em diferentes agências e organizações, com demandas, públicos e mercados diversos. Esse repertório amplia a leitura de cada novo desafio.',
     items: [
@@ -369,7 +377,7 @@ export const site: SiteContent = {
   cases: {
     id: 'projetos',
     eyebrow: 'Projetos e resultados',
-    title: 'Contextos diferentes. Estratégia com direção.',
+    title: 'Contextos diferentes. Estratégia com direção',
     intro:
       'Três experiências em projetos conduzidos no contexto da minha atuação profissional. Os relatos preservam a identidade das organizações e apresentam resultados qualitativos.',
     labels: {
@@ -408,15 +416,15 @@ export const site: SiteContent = {
   audience: {
     id: 'publico',
     eyebrow: 'Para quem são as soluções',
-    title: 'Presença digital na escala do seu negócio.',
+    title: 'Presença digital na escala do seu negócio',
     intro:
       'Serviços pensados para MEIs, autônomos e pequenos negócios que querem organizar sua presença, comunicar seu valor e ampliar as oportunidades de descoberta.',
     examplesLabel: 'Para quem',
     items: [
       {
-        title: 'Clínicas e consultórios',
-        examples: 'Clínicas, consultórios e profissionais da saúde.',
-        description: 'Descoberta por especialidade e localização, com informações que apoiam visibilidade e confiança.',
+        title: 'Pequenos empreendedores em marketplaces e redes sociais',
+        examples: 'Empreendedores que vendem em marketplaces ou pelas redes sociais.',
+        description: 'Organização da presença e das informações de produtos e serviços para apoiar a descoberta por potenciais clientes nessas plataformas.',
       },
       {
         title: 'Profissionais liberais',
@@ -473,6 +481,19 @@ export const site: SiteContent = {
         ],
       },
       {
+        title: 'Comércio digital',
+        items: [
+          {
+            title: 'SEO para e-commerce',
+            description: 'Análise e otimização de categorias, páginas de produtos e conteúdo para apoiar a descoberta orgânica da loja virtual.',
+          },
+          {
+            title: 'SEO para marketplace',
+            description: 'Análise e otimização das informações de produtos e da presença da loja, conforme os recursos e as regras de cada marketplace.',
+          },
+        ],
+      },
+      {
         title: 'Marca pessoal e plataformas',
         items: [
           {
@@ -486,6 +507,10 @@ export const site: SiteContent = {
           {
             title: 'SEO para marca pessoal',
             description: 'Estratégia para organizar a presença associada ao seu nome, à sua especialidade e aos seus serviços.',
+          },
+          {
+            title: 'SEO para Reddit',
+            description: 'Estratégia de presença e conteúdo no Reddit, considerando comunidades relevantes, linguagem e temas relacionados ao negócio.',
           },
         ],
       },
@@ -507,7 +532,7 @@ export const site: SiteContent = {
   process: {
     id: 'como-funciona',
     eyebrow: 'Modalidades e processo',
-    title: 'Uma forma de trabalhar para cada momento.',
+    title: 'Uma forma de trabalhar para cada momento',
     intro:
       'Você pode começar por uma visão estratégica, contratar um projeto com execução ou contar com acompanhamento contínuo. O escopo é combinado conforme a necessidade do negócio.',
     modalitiesTitle: 'Três formas de contratação',
@@ -528,7 +553,7 @@ export const site: SiteContent = {
         description: 'Monitoramento, análise dos resultados e evolução contínua, de acordo com o contrato.',
       },
     ],
-    stepsTitle: 'Da leitura do contexto à evolução',
+    stepsTitle: 'Como funciona o atendimento',
     steps: [
       {
         title: 'Auditoria e diagnóstico',
@@ -553,19 +578,19 @@ export const site: SiteContent = {
   testimonials: {
     id: 'depoimentos',
     eyebrow: 'Depoimentos',
-    title: 'Experiência construída em colaboração.',
+    title: 'Experiência construída em colaboração',
     intro: 'Perspectivas de pessoas que fizeram parte da minha trajetória profissional.',
     sourceLabel: 'Trecho de recomendação do LinkedIn',
     emptyState: {
-      title: 'Cada projeto também é uma troca.',
+      title: 'Cada projeto também é uma troca',
       description: 'Clareza, compromisso e colaboração orientam minha forma de trabalhar com pessoas e negócios.',
     },
     // Os oito trechos e nomes foram revisados pela titular, que autorizou sua exibição pública.
     items: [
       {
         name: 'Rafaela Campos',
-        relationship: 'Trabalhou na mesma equipe',
-        quote: 'comprometida, de poucas palavras e muita ação com qualidade',
+        relationship: 'Cliente em projeto recorrente',
+        quote: 'Conheço a Tathi há uma década quase e pude acompanhar quase toda a trajetória profissional dela, marcada pela vontade e proatividade para fazer acontecer unida ao desejo e empenho de fazer sempre o melhor.',
         status: 'aprovado',
       },
       {
@@ -577,37 +602,37 @@ export const site: SiteContent = {
       {
         name: 'Aline Saes',
         relationship: 'Trabalhou na mesma equipe',
-        quote: 'A Tathiane é uma redatora incrível, sabe receber bem todos os feedbacks e adaptar os conteúdos quando necessário.',
+        quote: 'A Tathiane é uma redatora incrível, sabe receber bem todos os feedbacks e adaptar os conteúdos quando necessário. Cumpria alto volume de posts com estrutura complexa de otimização no nicho de finanças, e era excelente trabalhar com ela.',
         status: 'aprovado',
       },
       {
-        name: 'Duda Razera',
-        relationship: 'Foi cliente da Tathiane',
-        quote: 'Os conteúdos da Tathi sempre tem muita qualidade e ela é fiel aos prazos e orientações enviadas.',
+        name: 'Duda Razzera',
+        relationship: 'Cliente em projeto recorrente',
+        quote: 'A Tathi é uma profissional muito dedicada, organizada e que veste a camisa do projeto. Os conteúdos da Tathi sempre tem muita qualidade e ela é fiel aos prazos e orientações enviadas. Além do conhecimento dela em conteúdos gerais e especializados, a Tathi também é ótima em otimização SEO, reotimização e reciclagem de conteúdos.',
         status: 'aprovado',
       },
       {
         name: 'Larissa Oliveira',
-        relationship: 'Foi cliente da Tathiane',
+        relationship: 'Cliente em projeto recorrente',
         quote: 'Tathiane sempre entrega um trabalho de redação impecável e de qualidade. Recomendo demais!',
         status: 'aprovado',
       },
       {
-        name: 'Karine',
+        name: 'Karine Silva',
         relationship: 'Trabalhou na mesma equipe',
-        quote: 'Como analista de SEO, é sempre muito assertiva nos briefings e direcionamentos de conteúdo',
+        quote: 'Tenho o prazer de trabalhar com a Tathi Mantovani e posso destacar o quanto ela é uma profissional competente, parceira e muito boa no que faz. Como analista de SEO, é sempre muito assertiva nos briefings e direcionamentos de conteúdo, além de ter um olhar estratégico que contribui muito para a qualidade das entregas.',
         status: 'aprovado',
       },
       {
         name: 'Gabriela Zendron da Cunha',
         relationship: 'Trabalhou na mesma equipe',
-        quote: 'sempre se mostrou uma profissional extremamente proativa, analítica e estratégica',
+        quote: 'Trabalhar com a Tathi foi uma experiência muito enriquecedora profissionalmente. Desde que entrou para o time de SEO, ela sempre se mostrou uma profissional extremamente proativa, analítica e estratégica, trazendo insights e sugestões que realmente agregavam valor para o time e para os projetos.',
         status: 'aprovado',
       },
       {
         name: 'Francielle Carvalho',
         relationship: 'Trabalharam em equipes diferentes',
-        quote: 'uma capacidade analítica impressionante, raciocínio lógico apurado, olhar crítico e muita agilidade na resolução de problemas',
+        quote: 'Tive o privilégio de trabalhar ao lado da Tathiane e carrego até hoje muitos dos aprendizados em SEO que tive a partir das trocas com ela. Ela é uma profissional extremamente séria, competente e admirável, com uma capacidade analítica impressionante, raciocínio lógico apurado, olhar crítico e muita agilidade na resolução de problemas.',
         status: 'aprovado',
       },
     ],
@@ -631,7 +656,7 @@ export const site: SiteContent = {
     },
     linkedin: { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tathimantovani/' },
     github: { label: 'GitHub', href: 'https://github.com/tathianemantovani' },
-    availabilityNote: 'Consultoria para MEIs, autônomos e pequenos negócios.',
+    availabilityNote: 'SEO e GEO para MEIs, autônomos e pequenos negócios.',
   },
   footer: {
     name: 'Tathiane Mantovani',
@@ -647,7 +672,7 @@ export const site: SiteContent = {
     pendingReview: [
       'Confirmar se o indicador de livros técnicos publicados deve ser 9+ ou 9.',
       'Validar o indicador 12+ de especializações acadêmicas e sua composição entre cursos concluídos e em andamento.',
-      'Revisar nomes, instituições, períodos e status dos cursos selecionados antes da publicação.',
+      'Validar apenas como referência editorial os metadados conhecidos de formação; a página exibe somente os nomes dos cursos e não atribui conclusão aos novos cursos.',
     ],
   },
 };

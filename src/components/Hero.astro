@@ -31,7 +31,6 @@ const hasPortrait = existsSync(resolve(process.cwd(), 'public', portrait.src.rep
     {hasPortrait && (
       <figure class="hero-portrait">
         <img src={portrait.src} alt={portrait.alt} width={portrait.width} height={portrait.height} loading="eager" fetchpriority="high" decoding="async" />
-        <figcaption>{content.photoCaption}</figcaption>
       </figure>
     )}
     <div class="hero-bottom">

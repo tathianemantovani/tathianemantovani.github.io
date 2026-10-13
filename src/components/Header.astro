@@ -1,6 +1,7 @@
 ---
 import { site } from '../data/site';
 import Icon from './Icon.astro';
+import Brand from './Brand.astro';
 
 const showTestimonials = site.testimonials.items.some((item) => item.status === 'aprovado');
 const navigation = site.navigation.filter((item) => item.href !== '#depoimentos' || showTestimonials);
@@ -8,10 +9,7 @@ const navigation = site.navigation.filter((item) => item.href !== '#depoimentos'
 <a class="skip-link" href="#conteudo">{site.ui.skipLink}</a>
 <header class="site-header" data-site-header>
   <div class="container header-inner">
-    <a class="brand" href="#inicio" aria-label={`${site.identity.monogram}. ${site.identity.name} — ${site.ui.backToTop}`}>
-      <span class="brand-monogram" aria-hidden="true">{site.identity.monogram}<span class="brand-dot">.</span></span>
-      <span class="brand-name">{site.identity.name}</span>
-    </a>
+    <Brand />
     <button class="menu-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" data-menu-toggle hidden>
       <span data-menu-label data-open-label={site.ui.menuOpen} data-close-label={site.ui.menuClose}>{site.ui.menuOpen}</span>
       <span class="menu-open-icon"><Icon name="menu" /></span>

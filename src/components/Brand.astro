@@ -1,0 +1,17 @@
+---
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { site } from '../data/site';
+
+interface Props { footer?: boolean; }
+const { footer = false } = Astro.props;
+const illustration = site.images.illustration;
+const available = existsSync(resolve(process.cwd(), 'public', illustration.src.replace(/^\//, '')));
+---
+<a class:list={['brand', { 'footer-brand': footer }]} href="#inicio" aria-label={`${site.identity.monogram}. ${site.identity.name} — ${site.ui.backToTop}`}>
+  <span class="brand-mark" aria-hidden="true">
+    {available && <img class="brand-illustration" src={illustration.src} alt="" width={illustration.width} height={illustration.height} decoding="async" loading={footer ? 'lazy' : 'eager'} />}
+    <span class="brand-monogram">{site.identity.monogram}<span class="brand-dot">.</span></span>
+  </span>
+  <span class="brand-name">{footer ? site.footer.name : site.identity.name}</span>
+</a>

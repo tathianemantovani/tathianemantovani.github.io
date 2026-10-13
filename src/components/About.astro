@@ -1,6 +1,5 @@
 ---
 import { site } from '../data/site';
-import OriginalIllustration from './OriginalIllustration.astro';
 
 const content = site.about;
 const titleId = `${content.id}-titulo`;
@@ -33,18 +32,6 @@ const titleId = `${content.id}-titulo`;
       </div>
 
       <div class="about-aside">
-        <div class="trajectory-block">
-          <h3 class="subsection-title">{content.trajectoryTitle}</h3>
-          <ul class="timeline">
-            {content.trajectory.map((item) => (
-              <li class="timeline-item">
-                <h4>{item.organization}</h4>
-                <p>{item.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <div class="education-block">
           <h3 class="subsection-title">{content.educationTitle}</h3>
           <ul class="education-list">
@@ -52,19 +39,11 @@ const titleId = `${content.id}-titulo`;
               <li>
                 <div class="education-heading">
                   <h4>{item.name}</h4>
-                  <span class:list={['education-status', { 'education-status--ongoing': item.status === 'emAndamento' }]}>
-                    {content.educationStatusLabels[item.status]}
-                  </span>
                 </div>
-                {(item.institution || item.period) && (
-                  <p class="education-meta">{[item.institution, item.period].filter(Boolean).join(' · ')}</p>
-                )}
               </li>
             ))}
           </ul>
-          <p class="section-note">{content.educationNote}</p>
         </div>
-        <OriginalIllustration />
       </div>
     </div>
   </div>

@@ -1,8 +1,0 @@
----
-import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { site } from '../data/site';
-const image = site.images.illustration;
-const available = existsSync(resolve(process.cwd(), 'public', image.src.replace(/^\//, '')));
----
-{available && <div class="editorial-illustration" aria-hidden="true"><img src={image.src} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" /></div>}
