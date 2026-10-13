@@ -1,0 +1,44 @@
+---
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+
+const content = site.hero;
+const portrait = site.images.portrait;
+const hasPortrait = existsSync(resolve(process.cwd(), 'public', portrait.src.replace(/^\//, '')));
+---
+<section id={content.id} class:list={['hero', 'section--dark', { 'hero--with-portrait': hasPortrait }]} aria-labelledby="hero-titulo">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow hero-eyebrow"><span class="section-number" aria-hidden="true">01</span>{content.eyebrow}</p>
+      <h1 id="hero-titulo" class="hero-title">
+        {content.headingLines.map((line, index) => <span class:list={{ 'hero-title-accent': index === 1 }}>{line}</span>)}
+      </h1>
+      <div class="hero-introduction">
+        <div class="hero-identity">
+          <p class="hero-name">{site.identity.name}</p>
+          <p class="hero-role">{site.identity.title}</p>
+        </div>
+        <p class="hero-description">{content.description}</p>
+      </div>
+      <div class="hero-actions">
+        <a class="button button--primary" href={content.primaryCta.href} target="_blank" rel="noopener noreferrer">{content.primaryCta.label}<Icon name="diagonal" /></a>
+        <a class="text-link hero-secondary" href={content.secondaryCta.href}>{content.secondaryCta.label}<Icon name="arrow" /></a>
+      </div>
+    </div>
+    {hasPortrait && (
+      <figure class="hero-portrait">
+        <img src={portrait.src} alt={portrait.alt} width={portrait.width} height={portrait.height} loading="eager" fetchpriority="high" decoding="async" />
+        <figcaption>{content.photoCaption}</figcaption>
+      </figure>
+    )}
+    <div class="hero-bottom">
+      <ul class="hero-specialties" aria-label={site.identity.title}>
+        {content.expertiseLabels.map((label) => <li>{label}</li>)}
+      </ul>
+      <a class="hero-scroll" href="#numeros">{content.scrollLabel}<Icon name="down" /></a>
+    </div>
+  </div>
+</section>

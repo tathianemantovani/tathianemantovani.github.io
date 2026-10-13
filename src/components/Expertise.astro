@@ -1,0 +1,33 @@
+---
+import { site } from '../data/site';
+
+const content = site.expertise;
+const titleId = `${content.id}-titulo`;
+---
+
+<section id={content.id} class="section section--dark expertise-section" aria-labelledby={titleId}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span class="section-number" aria-hidden="true">04 /</span> {content.eyebrow}</p>
+        <h2 id={titleId} class="section-title">{content.title}</h2>
+      </div>
+      <p class="section-intro">{content.intro}</p>
+    </div>
+
+    <div class="card-grid expertise-grid">
+      {content.items.map((item, index) => (
+        <article class="card expertise-card">
+          <div class="card-topline">
+            <span class="card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <svg class="card-symbol" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M7 25 25 7M7 7h18v18" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+          </div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

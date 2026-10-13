@@ -1,0 +1,47 @@
+---
+import { site } from '../data/site';
+
+const content = site.cases;
+const titleId = `${content.id}-titulo`;
+---
+
+<section id={content.id} class="section section--dark cases-section" aria-labelledby={titleId}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span class="section-number" aria-hidden="true">06 /</span> {content.eyebrow}</p>
+        <h2 id={titleId} class="section-title">{content.title}</h2>
+      </div>
+      <p class="section-intro">{content.intro}</p>
+    </div>
+
+    <div class="card-grid case-grid">
+      {content.items.map((item, index) => (
+        <article class="card case-card">
+          <div class="case-card-header">
+            <span class="card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <p class="case-segment"><span class="visually-hidden">{content.labels.segment}: </span>{item.segment}</p>
+          </div>
+          <h3>{item.title}</h3>
+          <dl class="case-details">
+            <div class="case-detail">
+              <dt>{content.labels.challenge}</dt>
+              <dd>{item.challenge}</dd>
+            </div>
+            <div class="case-detail">
+              <dt>{content.labels.strategy}</dt>
+              <dd>{item.strategy}</dd>
+            </div>
+            <div class="case-detail case-detail--result">
+              <dt>{content.labels.result}</dt>
+              <dd>{item.result}</dd>
+            </div>
+          </dl>
+          <ul class="tag-list case-tags">
+            {item.tags.map((tag) => <li class="tag">{tag}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import { site } from '../data/site';
+import '../styles/global.css';
+const canonical = site.meta.url;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${canonical}#person`,
+      name: site.identity.name,
+      url: canonical,
+      jobTitle: site.identity.title,
+      description: site.meta.description,
+      knowsAbout: site.expertise.items.map((item) => item.title),
+      sameAs: [site.contact.linkedin.href, site.contact.github.href],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${canonical}#website`,
+      url: canonical,
+      name: site.identity.name,
+      inLanguage: site.meta.language,
+      author: { '@id': `${canonical}#person` },
+    },
+  ],
+};
+---
+<!doctype html>
+<html lang={site.meta.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.meta.title}</title>
+    <meta name="description" content={site.meta.description} />
+    <meta name="theme-color" content={site.meta.themeColor} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={site.meta.locale} />
+    <meta property="og:site_name" content={site.identity.name} />
+    <meta property="og:title" content={site.meta.ogTitle} />
+    <meta property="og:description" content={site.meta.ogDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content={site.meta.twitterCard} />
+    <meta name="twitter:title" content={site.meta.title} />
+    <meta name="twitter:description" content={site.meta.description} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\u003c')} />
+  </head>
+  <body><slot /></body>
+</html>

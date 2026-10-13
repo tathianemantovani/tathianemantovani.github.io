@@ -1,0 +1,20 @@
+---
+import { site } from '../data/site';
+
+const content = site.stats;
+const titleId = `${content.id}-titulo`;
+---
+
+<section id={content.id} class="section section--dark stats-section" aria-labelledby={titleId}>
+  <div class="container">
+    <h2 id={titleId} class="visually-hidden">{content.label}</h2>
+    <dl class="stats-strip">
+      {content.items.map((item) => (
+        <div class="stats-item">
+          <dt class="stats-label">{item.label}</dt>
+          <dd class="stats-value">{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

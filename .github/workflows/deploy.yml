@@ -1,0 +1,88 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Verificar e construir
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter o código
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Verificar as imagens originais obrigatórias
+        shell: bash
+        run: |
+          missing=0
+          for asset in public/images/foto-tathiane.jpg public/images/ilustracao-livro-pena.png; do
+            if [[ ! -s "$asset" ]]; then
+              echo "::error file=$asset::Adicione o arquivo original antes de publicar. Consulte public/images/README.md."
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Registrar a revisão editorial
+        shell: bash
+        run: |
+          cat <<'NOTE' >> "$GITHUB_STEP_SUMMARY"
+          ### Revisão editorial antes da publicação
+          - Depoimentos exigem confirmação de nomes, vínculos, trechos e uso público pela titular. Registros pendentes devem permanecer omitidos.
+          - Confirme se o indicador de livros deve ser 9 ou 9+ e como qualificar 12+ especializações, distinguindo cursos concluídos e em andamento.
+          NOTE
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Instalar as dependências do lockfile
+        run: npm ci
+
+      - name: Verificar tipos e componentes
+        run: npm run check
+
+      - name: Construir o site estático
+        run: npm run build
+
+      - name: Enviar o artefato do Pages
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist
+
+  deploy:
+    name: Publicar
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Conferir a configuração do Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+        with:
+          enablement: false
+
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

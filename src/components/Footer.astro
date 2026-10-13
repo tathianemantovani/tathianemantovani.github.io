@@ -1,0 +1,20 @@
+---
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer section--dark">
+  <div class="container footer-inner">
+    <a class="brand footer-brand" href="#inicio" aria-label={`${site.identity.monogram}. ${site.identity.name} — ${site.ui.backToTop}`}>
+      <span class="brand-monogram" aria-hidden="true">{site.identity.monogram}<span class="brand-dot">.</span></span>
+      <span class="brand-name">{site.footer.name}</span>
+    </a>
+    <p class="footer-copyright">© {year} {site.footer.name}. {site.footer.copyrightLabel}</p>
+    <nav class="footer-navigation" aria-label={site.footer.navigationLabel}>
+      {site.footer.links.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</footer>
+<a class="floating-contact" href={site.contact.whatsapp.href} target="_blank" rel="noopener noreferrer" aria-label={`${site.contact.whatsapp.label} — ${site.ui.whatsappFloatingLabel}`}>
+  <Icon name="chat" /><span>{site.contact.whatsapp.label}</span>
+</a>

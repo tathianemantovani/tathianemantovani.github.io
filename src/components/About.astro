@@ -1,0 +1,71 @@
+---
+import { site } from '../data/site';
+import OriginalIllustration from './OriginalIllustration.astro';
+
+const content = site.about;
+const titleId = `${content.id}-titulo`;
+---
+
+<section id={content.id} class="section section--light about-section" aria-labelledby={titleId}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span class="section-number" aria-hidden="true">03 /</span> {content.eyebrow}</p>
+        <h2 id={titleId} class="section-title">{content.title}</h2>
+      </div>
+      <p class="section-intro">{content.intro}</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy">
+        <h3 class="subsection-title">{content.differentialsTitle}</h3>
+        <ol class="differential-list">
+          {content.differentials.map((item, index) => (
+            <li class="differential-item">
+              <span class="card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class="about-aside">
+        <div class="trajectory-block">
+          <h3 class="subsection-title">{content.trajectoryTitle}</h3>
+          <ul class="timeline">
+            {content.trajectory.map((item) => (
+              <li class="timeline-item">
+                <h4>{item.organization}</h4>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="education-block">
+          <h3 class="subsection-title">{content.educationTitle}</h3>
+          <ul class="education-list">
+            {content.education.map((item) => (
+              <li>
+                <div class="education-heading">
+                  <h4>{item.name}</h4>
+                  <span class:list={['education-status', { 'education-status--ongoing': item.status === 'emAndamento' }]}>
+                    {content.educationStatusLabels[item.status]}
+                  </span>
+                </div>
+                {(item.institution || item.period) && (
+                  <p class="education-meta">{[item.institution, item.period].filter(Boolean).join(' · ')}</p>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p class="section-note">{content.educationNote}</p>
+        </div>
+        <OriginalIllustration />
+      </div>
+    </div>
+  </div>
+</section>

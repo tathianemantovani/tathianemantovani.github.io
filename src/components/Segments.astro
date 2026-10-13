@@ -1,0 +1,37 @@
+---
+import { site } from '../data/site';
+
+const content = site.segments;
+const titleId = `${content.id}-titulo`;
+---
+
+<section id={content.id} class="section section--light segments-section" aria-labelledby={titleId}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span class="section-number" aria-hidden="true">05 /</span> {content.eyebrow}</p>
+        <h2 id={titleId} class="section-title">{content.title}</h2>
+      </div>
+      <p class="section-intro">{content.intro}</p>
+    </div>
+
+    <ul class="segment-list">
+      {content.items.map((item, index) => (
+        <li class="segment-chip">
+          <span class="segment-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="segment-context">
+      <div>
+        <h3 class="subsection-title">{content.businessModelsTitle}</h3>
+        <ul class="tag-list">
+          {content.businessModels.map((model) => <li class="tag">{model}</li>)}
+        </ul>
+      </div>
+      <p class="section-note">{content.note}</p>
+    </div>
+  </div>
+</section>

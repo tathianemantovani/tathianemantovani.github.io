@@ -1,0 +1,36 @@
+---
+import { site } from '../data/site';
+
+const content = site.testimonials;
+const titleId = `${content.id}-titulo`;
+// Recomendações e autorização de uso dos nomes devem ser aprovadas nos dados
+// antes de sua publicação. A seção inteira é omitida enquanto estiverem pendentes.
+const approved = content.items.filter((item) => item.status === 'aprovado');
+---
+
+{approved.length > 0 && (
+  <section id={content.id} class="section section--light testimonials-section" aria-labelledby={titleId}>
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span class="section-number" aria-hidden="true">10 /</span> {content.eyebrow}</p>
+          <h2 id={titleId} class="section-title">{content.title}</h2>
+        </div>
+        <p class="section-intro">{content.intro}</p>
+      </div>
+
+      <div class="card-grid testimonial-grid">
+        {approved.map((item) => (
+          <figure class="card testimonial-card">
+            <blockquote><p>“{item.quote}”</p></blockquote>
+            <figcaption class="testimonial-attribution">
+              <strong>{item.name}</strong>
+              <span>{item.relationship}</span>
+              <small>{content.sourceLabel}</small>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,43 @@
+---
+import { site } from '../data/site';
+
+const content = site.services;
+const titleId = `${content.id}-titulo`;
+---
+
+<section id={content.id} class="section section--dark services-section" aria-labelledby={titleId}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span class="section-number" aria-hidden="true">08 /</span> {content.eyebrow}</p>
+        <h2 id={titleId} class="section-title">{content.title}</h2>
+      </div>
+      <p class="section-intro">{content.intro}</p>
+    </div>
+
+    <div class="service-groups">
+      {content.groups.map((group) => (
+        <div class="service-group">
+          <h3 class="service-group-title">{group.title}</h3>
+          <div class="services-grid">
+            {group.items.map((item) => (
+              <article class="card service-card">
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-cta">
+      <a class="button button--primary" href={content.cta.href} target="_blank" rel="noopener noreferrer">
+        {content.cta.label}
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
