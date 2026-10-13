@@ -203,18 +203,18 @@ export const site: SiteContent = {
     whatsappFloatingLabel: 'Conversar com Tathiane pelo WhatsApp',
   },
   images: {
-    // Reservas de layout: conferir dimensões e composição quando os originais chegarem.
+    // Dimensões dos arquivos originais enviados pela titular.
     portrait: {
       src: '/images/foto-tathiane.jpg',
       alt: 'Retrato profissional de Tathiane Mantovani',
-      width: 720,
-      height: 900,
+      width: 867,
+      height: 1024,
     },
     illustration: {
       src: '/images/ilustracao-livro-pena.png',
       alt: '',
-      width: 640,
-      height: 640,
+      width: 981,
+      height: 756,
     },
   },
   hero: {
@@ -560,55 +560,55 @@ export const site: SiteContent = {
       title: 'Cada projeto também é uma troca.',
       description: 'Clareza, compromisso e colaboração orientam minha forma de trabalhar com pessoas e negócios.',
     },
-    // Nenhuma recomendação é pública até a titular revisar texto e autorizar o uso do nome.
+    // Os oito trechos e nomes foram revisados pela titular, que autorizou sua exibição pública.
     items: [
       {
         name: 'Rafaela Campos',
         relationship: 'Trabalhou na mesma equipe',
         quote: 'comprometida, de poucas palavras e muita ação com qualidade',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
       {
         name: 'Calila Meira',
         relationship: 'Foi mentora da Tathiane',
         quote: 'Ótima profissional e aluna! Muito correta em tudo o que faz e proativa.',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
       {
         name: 'Aline Saes',
         relationship: 'Trabalhou na mesma equipe',
         quote: 'A Tathiane é uma redatora incrível, sabe receber bem todos os feedbacks e adaptar os conteúdos quando necessário.',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
       {
         name: 'Duda Razera',
         relationship: 'Foi cliente da Tathiane',
         quote: 'Os conteúdos da Tathi sempre tem muita qualidade e ela é fiel aos prazos e orientações enviadas.',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
       {
         name: 'Larissa Oliveira',
         relationship: 'Foi cliente da Tathiane',
         quote: 'Tathiane sempre entrega um trabalho de redação impecável e de qualidade. Recomendo demais!',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
       {
         name: 'Karine',
         relationship: 'Trabalhou na mesma equipe',
         quote: 'Como analista de SEO, é sempre muito assertiva nos briefings e direcionamentos de conteúdo',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
       {
         name: 'Gabriela Zendron da Cunha',
         relationship: 'Trabalhou na mesma equipe',
         quote: 'sempre se mostrou uma profissional extremamente proativa, analítica e estratégica',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
       {
         name: 'Francielle Carvalho',
         relationship: 'Trabalharam em equipes diferentes',
         quote: 'uma capacidade analítica impressionante, raciocínio lógico apurado, olhar crítico e muita agilidade na resolução de problemas',
-        status: 'pendenteRevisao',
+        status: 'aprovado',
       },
     ],
   },
@@ -645,12 +645,9 @@ export const site: SiteContent = {
   },
   editorial: {
     pendingReview: [
-      'Adicionar a fotografia profissional e a ilustração originais; conferir dimensões e enquadramento antes da publicação.',
       'Confirmar se o indicador de livros técnicos publicados deve ser 9+ ou 9.',
       'Validar o indicador 12+ de especializações acadêmicas e sua composição entre cursos concluídos e em andamento.',
       'Revisar nomes, instituições, períodos e status dos cursos selecionados antes da publicação.',
-      'Revisar a exatidão dos oito trechos de recomendações e confirmar autorização editorial para uso dos nomes; somente então alterar o status para aprovado.',
-      'Confirmar o sobrenome de Karine se for necessário; manter apenas o nome fornecido até a confirmação.',
     ],
   },
 };

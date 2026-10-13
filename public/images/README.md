@@ -1,10 +1,10 @@
 # Imagens originais
 
-Adicione aqui os dois arquivos fornecidos pela titular:
+Esta pasta contém os dois arquivos originais fornecidos pela titular:
 
-- `foto-tathiane.jpg`: fotografia profissional de Tathiane Mantovani.
-- `ilustracao-livro-pena.png`: ilustração original de livro com pena, preservando a transparência.
+- `foto-tathiane.jpg`: fotografia profissional de Tathiane Mantovani, 867 × 1024 px.
+- `ilustracao-livro-pena.png`: ilustração original de livro com pena, 981 × 756 px, com transparência.
 
-Esses arquivos ainda não foram fornecidos. A implementação permite revisar o layout sem fabricar uma fotografia ou desenho substituto. O hero só poderá ser finalizado após a inclusão dos originais; o workflow bloqueia a publicação enquanto qualquer arquivo estiver ausente ou vazio.
+O hero usa a fotografia e a seção Sobre usa a ilustração como elemento editorial decorativo. Os originais foram recebidos e estão incluídos na versão preparada em `main`. O workflow verifica sua presença e bloqueia a publicação se algum arquivo estiver ausente ou vazio; os dois arquivos atuais atendem a essa condição.
 
-Prefira imagens otimizadas, com tamanho adequado à exibição. Confira a composição da fotografia, as dimensões declaradas no conteúdo e o contraste da ilustração antes de publicar. Não adicione capturas de recomendações, currículo ou outros documentos privados nesta pasta.
+Ao substituir os arquivos, preserve a composição da fotografia e a transparência da ilustração. Atualize as dimensões em `src/data/site.ts`, confira o enquadramento e o contraste e execute um novo build. Não adicione capturas de recomendações, currículo ou outros documentos privados nesta pasta.

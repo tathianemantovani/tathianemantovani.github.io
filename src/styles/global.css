@@ -190,8 +190,11 @@ main:focus { outline: none; }
 .process-flow .section-note { margin-top: 34px; max-width: 90ch; }
 .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .testimonial-card blockquote { margin: 0 0 25px; font-size: 18px; line-height: 1.6; }
-.testimonial-attribution { font-size: 13px; font-weight: 600; line-height: 1.6; }
-.testimonial-attribution p { font-size: 12px; }
+.testimonial-card { display: flex; flex-direction: column; }
+.testimonial-card blockquote p { color: var(--text); font-size: 18px; line-height: 1.7; font-weight: 450; }
+.testimonial-attribution { display: flex; flex-direction: column; gap: 5px; margin-top: auto; font-size: 13px; font-weight: 600; line-height: 1.6; }
+.testimonial-attribution span { color: var(--muted); font-size: 12px; font-weight: 400; }
+.testimonial-attribution small { color: var(--muted); font-size: 10px; font-weight: 400; padding-top: 14px; margin-top: 9px; border-top: 1px solid var(--line); }
 
 .contact-section { padding-block: 116px; background: #20221d; border-bottom: 1px solid #393d33; }
 .contact-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 100px; align-items: end; }
