@@ -13,7 +13,7 @@ Esta pasta disponibiliza capturas e instruções para revisão. O site já está
 
 As capturas mostram esta revisão, gerada a partir do build estático. Para conferir toda a página, use os comandos abaixo. Os oito depoimentos foram aprovados pela titular e incorporam as citações e os vínculos fornecidos para esta revisão; a página reúne as onze seções previstas.
 
-A revisão atual apresenta a ilustração original de livro e pena no hero, em uma moldura circular com contorno laranja, e na marca do cabeçalho e do rodapé. A fotografia permanece no repositório como acervo e não aparece no site. A página reúne doze itens de expertise e doze serviços. O Sobre mantém cinco diferenciais, sem o bloco de trajetória; sua formação exibe somente nomes de duas graduações e dez especializações.
+A revisão atual apresenta a ilustração original de livro e pena ampliada no hero, com suas linhas em laranja aplicadas por máscara CSS. O PNG mantém seus pixels, proporções e transparência. O destaque usa largura de até 450 px no desktop e até 340 px no celular, conforme o espaço disponível; texto e ilustração ficam empilhados em telas de até 740 px. A marca do cabeçalho e do rodapé continua usando a ilustração original. A fotografia permanece no repositório como acervo e não aparece no site. A página reúne doze itens de expertise e doze serviços. O Sobre mantém cinco diferenciais, sem o bloco de trajetória; sua formação exibe somente nomes de duas graduações e dez especializações.
 
 ## Baixar e visualizar
 

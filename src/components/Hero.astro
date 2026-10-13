@@ -29,7 +29,7 @@ const hasIllustration = existsSync(resolve(process.cwd(), 'public', illustration
       </div>
     </div>
     {hasIllustration && (
-      <figure class="hero-illustration" aria-hidden="true">
+      <figure class="hero-illustration" aria-hidden="true" style={{ '--hero-illustration-image': `url("${illustration.src}")` }}>
         <img src={illustration.src} alt={illustration.alt} width={illustration.width} height={illustration.height} loading="eager" fetchpriority="high" decoding="async" />
       </figure>
     )}
