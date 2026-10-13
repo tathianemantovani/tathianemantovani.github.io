@@ -24,6 +24,10 @@ export interface DescriptionCard {
   description: string;
 }
 
+export interface Service extends DescriptionCard {
+  singleLineTitle?: boolean;
+}
+
 export interface Education {
   name: string;
   institution?: string;
@@ -119,7 +123,7 @@ export interface SiteContent {
     items: { title: string; examples: string; description: string }[];
   };
   services: Section & {
-    groups: { title: string; items: DescriptionCard[] }[];
+    groups: { title: string; items: Service[] }[];
     cta: Link;
   };
   process: Section & {
@@ -230,7 +234,7 @@ export const site: SiteContent = {
     id: 'numeros',
     label: 'Uma trajetória em números',
     items: [
-      { value: '7+', label: 'anos de experiência na área de comunicação' },
+      { value: '7+', label: 'anos de experiência em comunicação' },
       { value: '40+', label: 'projetos desenvolvidos' },
       { value: '9+', label: 'livros técnicos publicados' },
       { value: '12+', label: 'especializações acadêmicas' },
@@ -301,27 +305,15 @@ export const site: SiteContent = {
     items: [
       {
         title: 'SEO estratégico',
-        description: 'Diagnóstico e planejamento de busca orgânica alinhados ao público, ao mercado e aos objetivos do negócio.',
+        description: 'Diagnóstico e planejamento de busca orgânica alinhados ao público, ao mercado e aos objetivos do negócio, com leitura de indicadores e performance, análise da concorrência e identificação de lacunas para definir prioridades e orientar a evolução da estratégia.',
       },
       {
         title: 'GEO e IA aplicada à busca',
         description: 'Análise e otimização de conteúdo para contextos de busca com respostas geradas por inteligência artificial.',
       },
       {
-        title: 'Estratégia e SEO de conteúdo',
-        description: 'Conexão entre intenção de busca, estrutura editorial e informação relevante para as pessoas.',
-      },
-      {
-        title: 'Dados e performance orgânica',
-        description: 'Leitura de indicadores para identificar oportunidades, avaliar o trabalho e orientar sua evolução.',
-      },
-      {
-        title: 'Inteligência competitiva',
-        description: 'Análise do ambiente de busca e dos concorrentes para reconhecer lacunas e possibilidades de posicionamento.',
-      },
-      {
-        title: 'Comunicação e produção editorial',
-        description: 'Organização de ideias e desenvolvimento de conteúdos claros, consistentes e adequados ao seu contexto.',
+        title: 'SEO conteúdo e clusters temáticos',
+        description: 'Organização de ideias, estrutura editorial e clusters temáticos alinhados à intenção de busca, com conteúdos claros, consistentes e relevantes para as pessoas.',
       },
       {
         title: 'SEO para redes sociais',
@@ -460,6 +452,7 @@ export const site: SiteContent = {
           {
             title: 'Otimização do Perfil da Empresa no Google',
             description: 'Revisão e organização das informações e dos recursos disponíveis no perfil para representar o negócio com clareza.',
+            singleLineTitle: true,
           },
         ],
       },
@@ -491,22 +484,22 @@ export const site: SiteContent = {
             title: 'SEO para marketplace',
             description: 'Análise e otimização das informações de produtos e da presença da loja, conforme os recursos e as regras de cada marketplace.',
           },
+          {
+            title: 'SEO para aplicativos',
+            description: 'Análise e otimização de informações e conteúdos para apoiar a descoberta de aplicativos, conforme os recursos de cada plataforma.',
+          },
         ],
       },
       {
         title: 'Marca pessoal e plataformas',
         items: [
           {
-            title: 'SEO para LinkedIn',
-            description: 'Otimização das informações do perfil para comunicar especialidades, serviços e posicionamento profissional.',
+            title: 'SEO para redes sociais',
+            description: 'Otimização de perfis no LinkedIn e de canais e vídeos no YouTube para comunicar especialidades, organizar informações e apoiar a descoberta nas buscas dessas plataformas.',
           },
           {
-            title: 'SEO para YouTube',
-            description: 'Otimização dos elementos de descoberta dos vídeos e do canal, conforme o conteúdo e o escopo definidos.',
-          },
-          {
-            title: 'SEO para marca pessoal',
-            description: 'Estratégia para organizar a presença associada ao seu nome, à sua especialidade e aos seus serviços.',
+            title: 'SEO para reputação',
+            description: 'Estratégia de presença digital para fortalecer a marca, compreender percepções do público e organizar as informações associadas ao negócio ou profissional.',
           },
           {
             title: 'SEO para Reddit',
@@ -515,11 +508,19 @@ export const site: SiteContent = {
         ],
       },
       {
-        title: 'Serviço complementar',
+        title: 'Serviços complementares',
         items: [
           {
-            title: 'Otimização de presença no Reclame AQUI',
+            title: 'Otimização do Reclame AQUI',
             description: 'Serviço complementar restrito às funcionalidades públicas sob controle do titular da conta. O escopo não inclui controle de avaliações ou resultados de terceiros.',
+          },
+          {
+            title: 'Criação de site e blog',
+            description: 'Criação de sites e blogs alinhados à estratégia de presença digital, com estrutura, organização e conteúdo definidos para os objetivos do negócio.',
+          },
+          {
+            title: 'Produção de conteúdo',
+            description: 'Redação de artigos para blog, roteiros para vídeo e legendas para LinkedIn, conforme a estratégia desenhada.',
           },
         ],
       },

@@ -1,8 +1,10 @@
 ---
 import { site } from '../data/site';
+import Icon from './Icon.astro';
 
 const content = site.about;
 const titleId = `${content.id}-titulo`;
+const differentialIcons = ['strategy', 'search', 'globe', 'editorial', 'implementation'] as const;
 ---
 
 <section id={content.id} class="section section--light about-section" aria-labelledby={titleId}>
@@ -18,32 +20,30 @@ const titleId = `${content.id}-titulo`;
     <div class="about-grid">
       <div class="about-copy">
         <h3 class="subsection-title">{content.differentialsTitle}</h3>
-        <ol class="differential-list">
+        <ul class="differential-list">
           {content.differentials.map((item, index) => (
             <li class="differential-item">
-              <span class="card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <span class="differential-icon"><Icon name={differentialIcons[index] ?? 'strategy'} /></span>
               <div>
                 <h4>{item.title}</h4>
                 <p>{item.description}</p>
               </div>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
 
-      <div class="about-aside">
-        <div class="education-block">
-          <h3 class="subsection-title">{content.educationTitle}</h3>
-          <ul class="education-list">
-            {content.education.map((item) => (
-              <li>
-                <div class="education-heading">
-                  <h4>{item.name}</h4>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div class="education-block">
+        <h3 class="subsection-title">{content.educationTitle}</h3>
+        <ul class="education-list">
+          {content.education.map((item) => (
+            <li>
+              <div class="education-heading">
+                <h4>{item.name}</h4>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </div>

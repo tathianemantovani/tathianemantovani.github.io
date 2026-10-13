@@ -21,7 +21,7 @@ const titleId = `${content.id}-titulo`;
           <h3 class="service-group-title">{group.title}</h3>
           <div class="services-grid">
             {group.items.map((item) => (
-              <article class="card service-card">
+              <article class:list={['card', 'service-card', { 'service-card--single-line': item.singleLineTitle }]}>
                 <h4>{item.title}</h4>
                 <p>{item.description}</p>
               </article>

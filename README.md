@@ -26,9 +26,13 @@ npm run preview -- --host 127.0.0.1 --port 4322
 
 Edite `src/data/site.ts` para atualizar textos, links, números, formação, serviços, segmentos, cases anônimos e depoimentos sem alterar os componentes. A frase do início está em `hero.headingLines`. Ajustes de cores, tipografia, espaçamento e responsividade ficam em `src/styles/global.css`.
 
-A formação pública exibe somente os nomes de duas graduações e dez especializações. Instituições, períodos e status conhecidos permanecem nos dados como referência editorial, sem aparecer na página. Preserve essas informações e não atribua conclusão, instituição ou datas aos cursos sem confirmação. O bloco de trajetória profissional foi retirado do Sobre; os cinco diferenciais permanecem.
+A seção Sobre exibe cinco diferenciais em cards com ícones distintos, lado a lado em uma linha no desktop. A formação fica abaixo: quatro colunas com três cursos em cada uma no desktop, duas colunas em telas intermediárias e uma em telas menores. Ela mostra somente os nomes de duas graduações e dez especializações. Instituições, períodos e status conhecidos permanecem nos dados como referência editorial, sem aparecer na página. Preserve essas informações e não atribua conclusão, instituição ou datas aos cursos sem confirmação. O bloco de trajetória profissional foi retirado.
 
-A revisão atual reúne doze competências de expertise e doze serviços. Os oito depoimentos foram aprovados pela titular e receberam os textos e vínculos fornecidos para esta revisão. Estão com `status: 'aprovado'` e visíveis; a página reúne as onze seções previstas.
+A revisão atual reúne nove competências de expertise. Leitura de dados, performance e análise da concorrência estão integradas a SEO estratégico; organização editorial está integrada a SEO conteúdo e clusters temáticos.
+
+Os quatorze serviços incluem SEO para redes sociais, reunindo LinkedIn e YouTube, SEO para reputação, SEO para aplicativos, criação de site e blog e produção de conteúdo em artigos, roteiros e legendas. O serviço complementar passa a se chamar Otimização do Reclame AQUI e mantém o escopo restrito às funcionalidades públicas sob controle do titular da conta.
+
+Os oito depoimentos foram aprovados pela titular e preservam as citações e os vínculos fornecidos. Estão com `status: 'aprovado'` e visíveis, em quatro colunas no desktop com tipografia compacta; a página reúne as onze seções previstas.
 
 Novos depoimentos ainda não confirmados devem ficar com `status: 'pendenteRevisao'` para serem omitidos da página. Alterar esse status inclui ou oculta o registro na página gerada e na prévia local, sem iniciar uma publicação por si só.
 
@@ -44,7 +48,8 @@ Antes de publicar alterações, execute `npm run check` e `npm run build`, depoi
 
 - Verifique as larguras de 320, 375, 768, 1024, 1440 e 1920 px, sem rolagem horizontal, imagens quebradas ou âncoras ausentes.
 - Confira o menu por teclado, o retorno do foco com Escape, o movimento reduzido e o contraste. A grade decorativa do hero pode exigir conferência manual de contraste na auditoria axe.
-- Confira a formação apenas com nomes, os doze itens de expertise, os doze serviços e os oito depoimentos aprovados.
+- Confira os cinco cards de diferenciais, as doze formações apenas com nomes, os nove itens de expertise, os quatorze serviços e os oito depoimentos aprovados.
+- Confira a formação em quatro colunas com três cursos por coluna e os depoimentos em quatro colunas no desktop, além da adaptação para telas menores.
 - O workflow executa instalação pelo lockfile, verificação de tipos e build; também exige que as duas imagens originais estejam presentes e não vazias.
 
 ## Revisões editoriais opcionais

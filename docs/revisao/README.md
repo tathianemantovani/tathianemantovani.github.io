@@ -10,10 +10,20 @@ Esta pasta disponibiliza capturas e instruções para revisão. O site já está
 - [Públicos atendidos](publicos.png)
 - [Sobre e formação](formacao.png)
 - [Depoimentos aprovados](depoimentos.png)
+- [Serviços](servicos.png)
+- [Indicadores](numeros.png)
+- [Sobre e formação no celular](sobre-mobile.png)
+- [Depoimentos no celular](depoimentos-mobile.png)
+- [Serviços no celular](servicos-mobile.png)
+- [Indicadores no celular](numeros-mobile.png)
 
-As capturas mostram esta revisão, gerada a partir do build estático. Para conferir toda a página, use os comandos abaixo. Os oito depoimentos foram aprovados pela titular e incorporam as citações e os vínculos fornecidos para esta revisão; a página reúne as onze seções previstas.
+As capturas mostram o build estático desta revisão. Para conferir toda a página, use os comandos abaixo. Os oito depoimentos foram aprovados pela titular e preservam as citações e os vínculos fornecidos; a página reúne as onze seções previstas.
 
-A revisão atual apresenta a ilustração original de livro e pena ampliada no hero, com suas linhas em laranja aplicadas por máscara CSS. O PNG mantém seus pixels, proporções e transparência. O destaque usa largura de até 450 px no desktop e até 340 px no celular, conforme o espaço disponível; texto e ilustração ficam empilhados em telas de até 740 px. A marca do cabeçalho e do rodapé continua usando a ilustração original. A fotografia permanece no repositório como acervo e não aparece no site. A página reúne doze itens de expertise e doze serviços. O Sobre mantém cinco diferenciais, sem o bloco de trajetória; sua formação exibe somente nomes de duas graduações e dez especializações.
+A revisão atual apresenta a ilustração original de livro e pena ampliada no hero, com suas linhas em laranja aplicadas por máscara CSS. O PNG mantém seus pixels, proporções e transparência. O destaque usa largura de até 450 px no desktop e até 340 px no celular, conforme o espaço disponível; texto e ilustração ficam empilhados em telas de até 740 px. A marca do cabeçalho e do rodapé continua usando a ilustração original. A fotografia permanece no repositório como acervo e não aparece no site.
+
+A página reúne nove itens de expertise e quatorze serviços. Dados, performance e análise da concorrência integram SEO estratégico; o trabalho editorial integra SEO conteúdo e clusters temáticos. Os serviços incluem SEO para redes sociais com LinkedIn e YouTube, reputação, aplicativos, criação de site e blog e produção de artigos, roteiros e legendas. O serviço complementar recebe o título Otimização do Reclame AQUI, mantendo seu escopo restrito às funcionalidades públicas sob controle do titular da conta.
+
+O Sobre apresenta cinco cards com ícones em uma linha no desktop, sem o bloco de trajetória. A formação fica abaixo, exibindo apenas nomes de duas graduações e dez especializações: quatro colunas com três cursos por coluna no desktop, duas colunas em telas intermediárias e uma nas menores. Os oito depoimentos preservam suas citações e aparecem em quatro colunas no desktop, com tipografia compacta.
 
 ## Baixar e visualizar
 
