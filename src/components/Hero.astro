@@ -5,10 +5,10 @@ import { site } from '../data/site';
 import Icon from './Icon.astro';
 
 const content = site.hero;
-const portrait = site.images.portrait;
-const hasPortrait = existsSync(resolve(process.cwd(), 'public', portrait.src.replace(/^\//, '')));
+const illustration = site.images.illustration;
+const hasIllustration = existsSync(resolve(process.cwd(), 'public', illustration.src.replace(/^\//, '')));
 ---
-<section id={content.id} class:list={['hero', 'section--dark', { 'hero--with-portrait': hasPortrait }]} aria-labelledby="hero-titulo">
+<section id={content.id} class:list={['hero', 'section--dark', { 'hero--with-illustration': hasIllustration }]} aria-labelledby="hero-titulo">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy">
@@ -28,9 +28,9 @@ const hasPortrait = existsSync(resolve(process.cwd(), 'public', portrait.src.rep
         <a class="text-link hero-secondary" href={content.secondaryCta.href}>{content.secondaryCta.label}<Icon name="arrow" /></a>
       </div>
     </div>
-    {hasPortrait && (
-      <figure class="hero-portrait">
-        <img src={portrait.src} alt={portrait.alt} width={portrait.width} height={portrait.height} loading="eager" fetchpriority="high" decoding="async" />
+    {hasIllustration && (
+      <figure class="hero-illustration" aria-hidden="true">
+        <img src={illustration.src} alt={illustration.alt} width={illustration.width} height={illustration.height} loading="eager" fetchpriority="high" decoding="async" />
       </figure>
     )}
     <div class="hero-bottom">

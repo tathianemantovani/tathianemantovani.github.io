@@ -6,12 +6,14 @@ Esta pasta disponibiliza capturas e instruções para revisão. O site já está
 
 - [Início no desktop](desktop.png)
 - [Início no celular](mobile.png)
+- [Expertise e marca e reputação](expertise.png)
+- [Públicos atendidos](publicos.png)
 - [Sobre e formação](formacao.png)
 - [Depoimentos aprovados](depoimentos.png)
 
 As capturas mostram esta revisão, gerada a partir do build estático. Para conferir toda a página, use os comandos abaixo. Os oito depoimentos foram aprovados pela titular e incorporam as citações e os vínculos fornecidos para esta revisão; a página reúne as onze seções previstas.
 
-A revisão atual apresenta fotografia menor e circular, ilustração original de livro e pena integrada à marca no cabeçalho e no rodapé, doze itens de expertise e doze serviços. O Sobre mantém cinco diferenciais, sem o bloco de trajetória; sua formação exibe somente nomes de duas graduações e dez especializações.
+A revisão atual apresenta a ilustração original de livro e pena no hero, em uma moldura circular com contorno laranja, e na marca do cabeçalho e do rodapé. A fotografia permanece no repositório como acervo e não aparece no site. A página reúne doze itens de expertise e doze serviços. O Sobre mantém cinco diferenciais, sem o bloco de trajetória; sua formação exibe somente nomes de duas graduações e dez especializações.
 
 ## Baixar e visualizar
 
@@ -28,7 +30,7 @@ Abra no navegador do mesmo computador o endereço exibido pelo terminal. Esses c
 
 O conteúdo está em `src/data/site.ts`; o visual fica em `src/styles/global.css`. A frase visível do início vem de `hero.headingLines`. Os depoimentos ficam em `testimonials.items`; `pendenteRevisao` oculta e `aprovado` inclui o registro na página. Os oito registros atuais já foram aprovados. Alterar o status atualiza a prévia e os próximos builds, sem iniciar um deploy por si só.
 
-Os originais já estão incluídos em `public/images/foto-tathiane.jpg` (867 × 1024 px) e `public/images/ilustracao-livro-pena.png` (981 × 756 px). Ao substituir as imagens, atualize suas dimensões nos dados e revise o enquadramento. `src/components/Brand.astro` integra a ilustração original à marca.
+Os originais já estão incluídos em `public/images/foto-tathiane.jpg` (867 × 1024 px, acervo sem exibição) e `public/images/ilustracao-livro-pena.png` (981 × 756 px, hero e marca). Ao substituir as imagens, atualize suas dimensões nos dados e revise o enquadramento. `src/components/Brand.astro` integra a ilustração original à marca.
 
 A formação mostra somente nomes. Instituições, períodos e status conhecidos permanecem em `site.ts` como referência editorial, sem aparecer na página. Preserve esses metadados e não invente informações dos novos cursos. Como revisão opcional, é possível ajustar `9+` ou `9` livros, revisar o indicador `12+` de especializações e atualizar a seleção da formação.
 

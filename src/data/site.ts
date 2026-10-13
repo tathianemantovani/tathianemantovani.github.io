@@ -344,8 +344,8 @@ export const site: SiteContent = {
         description: 'Estratégia de busca e conteúdo considerando idiomas, públicos e características de diferentes mercados.',
       },
       {
-        title: 'Reputação',
-        description: 'Análise da presença pública e da consistência das informações que ajudam as pessoas a conhecer e avaliar um negócio ou profissional.',
+        title: 'Marca e reputação',
+        description: 'Análise da presença digital, do sentimento do público e das avaliações públicas para identificar percepções, fortalecer a marca e orientar ações de reputação.',
       },
     ],
   },
@@ -422,7 +422,7 @@ export const site: SiteContent = {
     examplesLabel: 'Para quem',
     items: [
       {
-        title: 'Pequenos empreendedores em marketplaces e redes sociais',
+        title: 'Empreendedores digitais',
         examples: 'Empreendedores que vendem em marketplaces ou pelas redes sociais.',
         description: 'Organização da presença e das informações de produtos e serviços para apoiar a descoberta por potenciais clientes nessas plataformas.',
       },

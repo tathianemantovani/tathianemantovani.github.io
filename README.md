@@ -34,7 +34,7 @@ Novos depoimentos ainda não confirmados devem ficar com `status: 'pendenteRevis
 
 As imagens originais fornecidas pela titular estão incluídas em `public/images/`, conforme o [guia de imagens](public/images/README.md): fotografia de 867 × 1024 px e ilustração de 981 × 756 px. Os caminhos, textos alternativos e dimensões ficam em `src/data/site.ts`.
 
-A fotografia aparece menor e circular no hero, sem legenda com o nome. A ilustração original de livro e pena integra a marca no cabeçalho e no rodapé pelo componente `src/components/Brand.astro`; ela foi retirada do Sobre.
+A ilustração original de livro e pena aparece no hero, dentro de uma moldura circular com contorno laranja, e integra a marca no cabeçalho e no rodapé pelo componente `src/components/Brand.astro`. Ela não aparece no Sobre. A fotografia original permanece no repositório como acervo, sem exibição no site.
 
 Ao substituir alguma imagem, atualize `width` e `height` nos dados, revise o enquadramento e execute um novo build. Preserve a composição da fotografia e a transparência da ilustração. As imagens são incluídas somente quando os arquivos existem.
 
